@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  )
+  rgb(var(--background-start-rgb));
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #06b6d4;
+  color: black;
+}
+
+/* Terminal cursor effect */
+.terminal-cursor::after {
+  content: '|';
+  animation: cursor 1s infinite step-end;
+}
+
+@keyframes cursor {
+  50% { opacity: 0; }
+}
+
+/* Code highlighting */
+.code-highlight {
+  color: #06b6d4;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+} 
