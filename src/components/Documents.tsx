@@ -1,3 +1,5 @@
+'use client';
+
 export default function Documents() {
   return (
     <section id="documents" className="py-20 px-6">
@@ -13,7 +15,7 @@ export default function Documents() {
           </div>
           <pre className="text-sm font-mono">
             <code className="text-gray-300">
-{`// SPDX-License-Identifier: MIT
+              {`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract CyberSapiensProtocol {

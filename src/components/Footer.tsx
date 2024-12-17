@@ -1,3 +1,5 @@
+'use client';
+
 export default function Footer() {
   return (
     <footer className="bg-black/50 py-8 px-6 border-t border-gray-800">
@@ -7,7 +9,7 @@ export default function Footer() {
             {'<CyberSapiens />'}
           </div>
           <div className="text-gray-400 text-sm font-mono">
-            {'// © 2024 CyberSapiens. All rights reserved.'}
+            {'// © ' + new Date().getFullYear() + ' CyberSapiens. All rights reserved.'}
           </div>
         </div>
       </div>
