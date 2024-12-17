@@ -18,7 +18,7 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="py-20 px-6 bg-black/50">
+    <section id="services" className="py-20 bg-transparent">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center font-mono">
           {'<'}<span className="text-cyan-500">Services</span>{' />'}

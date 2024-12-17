@@ -51,7 +51,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={targetRef} className="relative min-h-screen bg-black overflow-hidden">
+    <section ref={targetRef} className="min-h-screen bg-black relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]"></div>

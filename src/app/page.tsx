@@ -11,19 +11,33 @@ import Footer from '@/components/Footer';
 import AnimatedFeatures from '@/components/AnimatedFeatures';
 import Stats from '@/components/Stats';
 import Header from '@/components/Header';
+import ScrollingBrands from '@/components/ScrollingBrands';
 
 export default function Home() {
   return (
-    <main className="bg-black text-white">
+    <main className="bg-gradient-to-b from-black to-gray-900">
       <Header />
       <Hero />
-      <Services />
-      <Stats />
-      <AnimatedFeatures />
-      <Documents />
+      <ScrollingBrands />
+      <div className="bg-gradient-to-b from-gray-900 to-black">
+        <Services />
+      </div>
+      <div className="bg-black">
+        <Stats />
+      </div>
+      <div className="bg-gradient-to-b from-black to-gray-900">
+        <AnimatedFeatures />
+      </div>
+      <div className="bg-gray-900">
+        <Documents />
+      </div>
       <FAQ />
-      <TerminalInfo />
-      <TerminalContact />
+      <div className="bg-gradient-to-b from-gray-900 to-black">
+        <TerminalInfo />
+      </div>
+      <div className="bg-black">
+        <TerminalContact />
+      </div>
       <Footer />
     </main>
   );

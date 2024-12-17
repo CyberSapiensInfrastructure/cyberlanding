@@ -39,7 +39,7 @@ const Stat = ({ num, suffix, decimals = 0, subheading }: StatProps) => {
 
 const Stats = () => {
   return (
-    <section className="bg-black">
+    <section className="py-20 bg-transparent">
       <div className="mx-auto max-w-5xl px-4 py-20 md:py-24">
         <h2 className="mb-8 text-center text-base text-gray-400 font-mono sm:text-lg md:mb-16">
           BUILDING THE FUTURE OF

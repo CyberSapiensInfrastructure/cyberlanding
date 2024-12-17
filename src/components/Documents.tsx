@@ -177,7 +177,7 @@ const Documents = () => {
   );
 
   return (
-    <section id="documents" className="py-20">
+    <section id="documents" className="py-20 bg-transparent">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl font-bold mb-12 text-center text-white">
           {'<'}<span className="text-cyan-500">Documents</span>{' />'}

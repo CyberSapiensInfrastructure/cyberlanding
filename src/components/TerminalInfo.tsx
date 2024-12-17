@@ -4,7 +4,7 @@ import React from 'react';
 
 const TerminalInfo = () => {
   return (
-    <section className="bg-black text-green-500 p-8 font-mono">
+    <section className="py-20 bg-transparent">
       <div className="container mx-auto">
         <div className="terminal-window">
           <div className="terminal-header">
