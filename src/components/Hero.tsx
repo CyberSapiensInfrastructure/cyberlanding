@@ -51,14 +51,14 @@ const Hero = () => {
   };
 
   return (
-    <section ref={targetRef} className="min-h-screen bg-black relative overflow-hidden">
+    <section ref={targetRef} className="min-h-[calc(100vh-80px)] bg-black relative overflow-hidden flex items-center">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]"></div>
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-cyan-500/10 to-transparent animate-fade-in"></div>
       </div>
 
-      <div className="container mx-auto px-4 py-32 relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
           <div>

@@ -11,8 +11,8 @@ import {
 
 const ScrollingBrands = () => {
   return (
-    <div className="relative -mt-2 -rotate-1 scale-[1.01] border-y-2 border-gray-800 bg-black">
-      <div className="relative z-0 flex overflow-hidden">
+    <div className="relative border-y-2 border-gray-800 bg-black/50 backdrop-blur-sm">
+      <div className="relative z-0 flex overflow-hidden py-2">
         <TranslateWrapper>
           <LogoItems />
         </TranslateWrapper>
@@ -61,8 +61,8 @@ const LogoItem = ({ Icon, name }: { Icon: IconType; name: string }) => {
 const LogoItems = () => (
   <>
     <LogoItem Icon={SiEthereum} name="Ethereum" />
- 
-    <LogoItem Icon={SiPolkadot} name="Polkadot" />
+    <LogoItem Icon={SiEthereum} name="Avalanche" />
+    <LogoItem Icon={SiEthereum} name="Arbitrum" />
     <LogoItem Icon={SiBinance} name="Binance" />
   </>
 );
