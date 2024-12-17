@@ -1,16 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { IconType } from "react-icons";
-import {
-  SiEthereum,
-  SiBinance,
-} from "react-icons/si";
+import Image from "next/image";
 
 const ScrollingBrands = () => {
   return (
-    <div className="relative border-y-2 border-gray-800 bg-black/50 backdrop-blur-sm">
-      <div className="relative z-0 flex overflow-hidden py-2">
+    <div className="relative border-y-2 border-gray-800 bg-black/50 backdrop-blur-sm h-[10vh]">
+      <div className="relative z-0 flex overflow-hidden h-full">
         <TranslateWrapper>
           <LogoItems />
         </TranslateWrapper>
@@ -45,23 +41,37 @@ const TranslateWrapper = ({
   );
 };
 
-const LogoItem = ({ Icon, name }: { Icon: IconType; name: string }) => {
+const LogoItem = ({ src, name, showName = false, size = "150px" }: {
+  src: string;
+  name: string;
+  showName?: boolean;
+  size?: string;
+}) => {
   return (
     <span className="flex items-center justify-center gap-4 px-8 py-4">
-      <Icon className="text-3xl text-cyan-500 md:text-4xl" />
-      <span className="whitespace-nowrap text-xl font-semibold uppercase text-gray-300 md:text-2xl">
-        {name}
-      </span>
+      <div style={{ width: size, height: size }} className="relative">
+        <Image 
+          src={src} 
+          alt={name} 
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      {showName && (
+        <span className="whitespace-nowrap text-xl font-semibold uppercase text-gray-300 md:text-2xl">
+          {name}
+        </span>
+      )}
     </span>
   );
 };
 
 const LogoItems = () => (
   <>
-    <LogoItem Icon={SiEthereum} name="Ethereum" />
-    <LogoItem Icon={SiEthereum} name="Avalanche" />
-    <LogoItem Icon={SiEthereum} name="Arbitrum" />
-    <LogoItem Icon={SiBinance} name="Binance" />
+    <LogoItem src="/avalanche.png" name="Avalanche" showName={true} size="50px" />
+    <LogoItem src="/providence-logo-anim.gif" name="Providence" />
+    <LogoItem src="/dynasty-logo.png" name="Dynasty" />
   </>
 );
 
