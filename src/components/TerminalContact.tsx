@@ -69,7 +69,7 @@ const TerminalHeader = () => {
   );
 };
 
-const TerminalBody = ({ containerRef, inputRef }: { containerRef: any; inputRef: any }) => {
+const TerminalBody = ({  inputRef }: { containerRef: any; inputRef: any }) => {
   const [focused, setFocused] = useState(false);
   const [text, setText] = useState("");
   const [questions, setQuestions] = useState(QUESTIONS);

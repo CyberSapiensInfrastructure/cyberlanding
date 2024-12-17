@@ -44,86 +44,36 @@ const DOCUMENTS: Document[] = [
   {
     id: 2,
     title: "Smart Contract Wallet",
-    content: "Comprehensive guide to Cybersapiens Smart Contract Wallet (CSCW) infrastructure",
+    content: "Cybersapiens Smart Contract Wallet (CSCW) ile kullanıcı katılımını en verimli hale getirmiştir. Oyuncular oyun oynarken Blockchain'e gönderilecek olan Transaction'lar için hiçbir oyun içi kesintiyle karşılaşmazlar.",
     category: "Infrastructure",
     sections: [
       {
-        title: "Overview",
-        content: "Cybersapiens Smart Contract Wallet (CSCW) provides seamless user onboarding for blockchain-integrated games. Players experience uninterrupted gameplay without blockchain transaction confirmations.",
-        subsections: [
-          {
-            title: "In-Game Wallet Structure",
-            content: "Every blockchain-verified asset appears in the player's wallet (inventory). Players can perform:\n- On-Chain Crafting (combining resources and blueprints - true Nested NFTs)\n- Refining (converting resources to different properties)\n- Marketplace trading"
-          },
-          {
-            title: "Technical Architecture",
-            content: "CSCW utilizes ERC4337 (Account Abstraction) architecture. Key components:\n- Custom Account Abstraction for each player\n- Smart Contract Wallet deployment on blockchain\n- Complete asset ownership verification"
-          }
-        ]
+        title: "Game Name Service (GNS)",
+        content: "Oyuncular, oyuna kayıt olurken Smart Contract Wallet adresleriyle birlikte On-Chain bir kullanıcı ismi alırlar. Kullanıcı isimleri Blockchain üzerine GNS Sözleşmesi ile kaydedilir ve GNS adının sahipliği o kullanıcıya aittir ve değiştirilemezdir."
       },
       {
-        title: "Core Features",
-        content: "The infrastructure includes EntryPoint and Paymaster contracts with flexible fee handling options.",
-        subsections: [
-          {
-            title: "Game Name Service (GNS)",
-            content: "```solidity\ncontract GameNameService {\n    mapping(string => address) private nameToWallet;\n    mapping(address => string) private walletToName;\n    \n    function registerName(string memory name) external {\n        require(nameToWallet[name] == address(0), \"Name taken\");\n        nameToWallet[name] = msg.sender;\n        walletToName[msg.sender] = name;\n    }\n}\n```\n\nGNS provides on-chain username registration linked to SCW addresses."
-          },
-          {
-            title: "Multi-Signature Support",
-            content: "Example multi-sig configuration:\n```typescript\ninterface MultiSigRule {\n  threshold: number;     // Amount threshold\n  requiredSignatures: number;  // Required signatures\n  guardians: string[];   // Authorized signers\n}\n\nconst rules: MultiSigRule[] = [\n  { threshold: 10, requiredSignatures: 1, guardians: [ownerAddress] },\n  { threshold: 100, requiredSignatures: 2, guardians: [ownerAddress, guardianAddress] },\n  { threshold: 1000, requiredSignatures: 3, guardians: [ownerAddress, guardian1, guardian2] }\n];\n```"
-          }
-        ]
+        title: "Multi Signature",
+        content: "Oyuncular Çoklu İmzalama desteğini kullanabilmektedir. Her oyuncu farklı kurallarla Çoklu İmzalama işlemi yapabilir. Oyuncular isterlerse işlemler için imza yetkilerini farklı GNS sahiplerine verebilirler."
+      },
+      {
+        title: "Wallet Recovery",
+        content: "Oyuncular Çoklu İmza yapısında olduğu gibi SCW kurtarma işlemleri için farklı Wallet adreslerini (Guardian) tanımlayabilirler. Bu sayede herhangi bir güvenlik sorununda Guardian adresi tarafından Wallet'in gerçek sahibine geri verilmesi sağlanır."
       }
     ]
   },
   {
     id: 3,
-    title: "Nested Asset Structure (Carbon)",
-    content: "Learn about Cybersapiens' innovative Nested Asset Structure for managing in-game assets",
-    category: "Assets",
+    title: "Nested Asset Structure",
+    content: "Carbon'lar oyunlar içerisinde kullanılan ve oyuncu varlıklarının yönetilmesini sağlayan bir mimaridir. Oyun içerisinde ki Resource, Item ve Blueprint'ler bu mimari ile oluşturulmaktadır.",
+    category: "Infrastructure",
     sections: [
       {
-        title: "Carbon Architecture",
-        content: "Carbon is a comprehensive asset management system for handling game assets (mint, claim, combine, separate, transfer, metadata attributes, historical data).",
-        subsections: [
-          {
-            title: "Asset Types",
-            content: "- Resources: Fungible Tokens\n- Items: Semi Non-Fungible Tokens\n- Blueprints: Semi Non-Fungible Tokens with crafting rules"
-          },
-          {
-            title: "Metadata Management",
-            content: "Example of on-chain metadata structure:\n```solidity\ncontract CarbonMetadata {\n    struct ItemMetadata {\n        uint256 tokenId;\n        uint256 subId;\n        string name;\n        uint256 level;\n        string[] attributes;\n        string[] historicalData;\n    }\n    \n    mapping(uint256 => ItemMetadata) private itemMetadata;\n    \n    function getMetadataAsJSON(uint256 tokenId) \n        external \n        view \n        returns (string memory) \n    {\n        ItemMetadata memory metadata = itemMetadata[tokenId];\n        return generateJSONFormat(metadata);\n    }\n}\n```"
-          }
-        ]
+        title: "Resource Management",
+        content: "Resource'lar Fungible Token'lardır ve yapıları aynıdır. Fakat Item ve Blueprint'ler Semi Non-Fungible Token'lardır. İlk üretildiklerinde özellikleri aynı olsa da Sub ID'lerle birbirinden ayrılmaktadır."
       },
       {
         title: "Crafting System",
-        content: "On-chain crafting system for combining resources using blueprints",
-        subsections: [
-          {
-            title: "Blueprint Implementation",
-            content: "```solidity\ncontract CraftingSystem {\n    function craft(\n        uint256 blueprintId,\n        uint256[] memory resourceIds,\n        uint256[] memory amounts\n    ) external returns (uint256 newItemId) {\n        // Verify blueprint ownership\n        require(ownerOf(blueprintId) == msg.sender, \"Not owner\");\n        \n        // Verify and burn resources\n        for(uint i = 0; i < resourceIds.length; i++) {\n            burnResource(msg.sender, resourceIds[i], amounts[i]);\n        }\n        \n        // Burn blueprint\n        _burn(blueprintId);\n        \n        // Mint new item\n        return _mintItem(msg.sender);\n    }\n}\n```"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 4,
-    title: "Technical Infrastructure",
-    content: "Detailed technical overview of Cybersapiens infrastructure",
-    category: "Technical",
-    sections: [
-      {
-        title: "Mempool Architecture",
-        content: "The infrastructure uses a custom mempool with horizontally scalable sequencers",
-        subsections: [
-          {
-            title: "Sequencer Implementation",
-            content: "Example sequencer processing:\n```typescript\ninterface UserOperation {\n  sender: string;\n  nonce: number;\n  callData: string;\n  signature: string;\n}\n\nclass Sequencer {\n  async processTransaction(tx: Transaction): Promise<void> {\n    // Convert to UserOp\n    const userOp = this.createUserOp(tx);\n    \n    // Simulate via EntryPoint\n    await this.simulateViaEntryPoint(userOp);\n    \n    // Handle sponsorship via Paymaster\n    await this.handleSponsorship(userOp);\n    \n    // Submit to blockchain\n    await this.submitToChain(userOp);\n  }\n}\n```"
-          }
-        ]
+        content: "Oyun içerisinde ki Crafting işlemleri On-Chain olarak yapılmaktadır. Oyuncunun sahip olduğu Blueprint'ler hangi Item'ları üretebileceklerini ve ne kadar Resource'a sahip olduklarında Crafting işlemini başlatabileceklerini tanımlayan Semi-Fungible Token'lardır."
       }
     ]
   }
