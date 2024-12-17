@@ -1,0 +1,38 @@
+.terminal-window {
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #0d1117;
+}
+
+.terminal-header {
+  background: #161b22;
+  padding: 8px;
+  border-bottom: 1px solid #30363d;
+}
+
+.terminal-title {
+  color: #8b949e;
+}
+
+.terminal-body {
+  padding: 16px;
+}
+
+.command-line {
+  margin: 8px 0;
+}
+
+.prompt {
+  color: #7ee787;
+  margin-right: 8px;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+} 

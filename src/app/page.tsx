@@ -1,19 +1,24 @@
-import Header from '../components/Header'
-import Hero from '../components/Hero'
-import Services from '../components/Services'
-import Documents from '../components/Documents'
-import Contact from '../components/Contact'
-import Footer from '../components/Footer'
+"use client";
+
+import React from 'react';
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import Documents from '@/components/Documents';
+import FAQ from '@/components/FAQ';
+import TerminalContact from '@/components/TerminalContact';
+import Footer from '@/components/Footer';
+import AnimatedFeatures from '@/components/AnimatedFeatures';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0A0A0A] text-gray-100">
-      <Header />
+    <main>
       <Hero />
       <Services />
+      <AnimatedFeatures />
       <Documents />
-      <Contact />
+      <FAQ />
+      <TerminalContact />
       <Footer />
     </main>
-  )
+  );
 } 
