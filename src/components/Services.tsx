@@ -6,8 +6,8 @@ export default function Services() {
       icon: '</>',
     },
     {
-      title: 'DeFi Protocols',
-      description: '// Decentralized finance infrastructure and integration',
+      title: 'On-Chain Game Infra',
+      description: '// Enables decentralized, transparent in-game operations on blockchain',
       icon: '₿',
     },
     {
