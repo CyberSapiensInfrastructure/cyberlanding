@@ -20,7 +20,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-20">
       <div className="container mx-auto max-w-3xl">
         <div className="bg-[#1A1A1A] rounded p-4 border border-gray-800">
           <div className="flex gap-2 mb-4">

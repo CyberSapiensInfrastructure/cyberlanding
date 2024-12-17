@@ -43,6 +43,13 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const scrollToDocs = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.querySelector('#documents')?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  };
+
   return (
     <section ref={targetRef} className="relative min-h-screen bg-black overflow-hidden">
       {/* Background Elements */}
@@ -88,7 +95,10 @@ const Hero = () => {
               className="flex gap-4"
             >
               <AnimatedButton />
-              <button className="border border-cyan-500 px-8 py-3 rounded hover:bg-cyan-500/10 transition font-mono">
+              <button 
+                onClick={scrollToDocs}
+                className="border border-cyan-500 px-8 py-3 rounded hover:bg-cyan-500/10 transition font-mono"
+              >
                 {'> View Docs'}
               </button>
             </motion.div>

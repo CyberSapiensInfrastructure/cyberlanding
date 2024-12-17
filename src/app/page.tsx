@@ -14,7 +14,7 @@ import Header from '@/components/Header';
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-black text-white">
       <Header />
       <Hero />
       <Services />

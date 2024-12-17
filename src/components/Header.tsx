@@ -16,9 +16,42 @@ export default function Header() {
           </Link>
           
           <div className="hidden md:flex space-x-8">
-            <Link href="#services" className="hover:text-cyan-500 transition">Services</Link>
-            <Link href="#documents" className="hover:text-cyan-500 transition">Docs</Link>
-            <Link href="#contact" className="hover:text-cyan-500 transition">Contact</Link>
+            <a 
+              href="#services" 
+              className="hover:text-cyan-500 transition"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#services')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+            >
+              Services
+            </a>
+            <a 
+              href="#documents" 
+              className="hover:text-cyan-500 transition"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#documents')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+            >
+              Docs
+            </a>
+            <a 
+              href="#terminal" 
+              className="hover:text-cyan-500 transition"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#terminal')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+            >
+              Terminal
+            </a>
           </div>
         </div>
       </nav>

@@ -5,8 +5,12 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Cybersapiens Documentation',
-  description: 'Comprehensive documentation for Cybersapiens Blockchain Infrastructure',
+  title: 'Your Site Title',
+  description: 'Your site description',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1
+  }
 };
 
 export default function RootLayout({
