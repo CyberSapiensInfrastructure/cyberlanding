@@ -85,7 +85,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl text-gray-400 mb-8 font-mono animate-slide-left"
             >
-              // Secure, scalable, and innovative blockchain solutions for games
+              {`// Secure, scalable, and innovative blockchain solutions for games`}
             </motion.p>
 
             <motion.div

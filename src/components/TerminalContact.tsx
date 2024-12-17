@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FiCheckCircle } from "react-icons/fi";
-import { ChangeEvent, FormEvent, Fragment, useEffect, useRef, useState } from "react";
+import { ChangeEvent, Fragment, useRef, useState } from "react";
 
 type QuestionType = {
   key: string;
@@ -37,8 +37,8 @@ const QUESTIONS: QuestionType[] = [
 ];
 
 const TerminalContact = () => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <section id="terminal" className="py-20 bg-transparent">
@@ -50,7 +50,7 @@ const TerminalContact = () => {
         className="h-96 bg-gray-900 backdrop-blur rounded-lg w-full max-w-3xl mx-auto overflow-y-scroll shadow-xl cursor-text font-mono"
       >
         <TerminalHeader />
-        <TerminalBody inputRef={inputRef} containerRef={containerRef} />
+        <TerminalBody containerRef={containerRef} inputRef={inputRef} />
       </div>
     </section>
   );
@@ -69,7 +69,10 @@ const TerminalHeader = () => {
   );
 };
 
-const TerminalBody = ({  inputRef }: { containerRef: any; inputRef: any }) => {
+const TerminalBody = ({ containerRef, inputRef }: { 
+  containerRef: React.RefObject<HTMLDivElement | null>;
+  inputRef: React.RefObject<HTMLInputElement | null>;
+}) => {
   const [focused, setFocused] = useState(false);
   const [text, setText] = useState("");
   const [questions, setQuestions] = useState(QUESTIONS);
